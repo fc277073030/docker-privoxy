@@ -1,6 +1,8 @@
 version: "3.3"
 services:
   ss-client:
+    depends_on:
+      - provixy
     image: shadowsocks/shadowsocks-libev:v3.3.5
     command:
       ss-local -s 8.210.213.197
@@ -11,11 +13,9 @@ services:
       -l 1080
       -t 60
       --fast-open
-    ports:
-      - "1080:1080"
     restart: always
     network_mode: host
   provixy:
-    image: fc277073030/privoxy:v3.14.2
+    image: caligari/privoxy:latest
     network_mode: host
     restart: always
