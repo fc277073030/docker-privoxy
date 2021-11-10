@@ -1,9 +1,8 @@
+FROM alpine:3.14.2
 
-FROM alpine:latest
+MAINTAINER 277073030@qq.com
 
-MAINTAINER caligari@treboada.net
-
-RUN apk --no-cache add privoxy 
+RUN apk --no-cache add privoxy
 ADD privoxy-start.sh /usr/local/bin/
 ADD config /etc/privoxy/
 RUN chmod +r /etc/privoxy/config && chmod +x /usr/local/bin/privoxy-start.sh
